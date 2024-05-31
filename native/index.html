@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Native</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #output {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            overflow-x: hidden;
+            gap: 5px;
+        }
+
+        .badge {
+            background-color: red;
+            border-radius: 50%;
+            padding: 0.25rem;
+            display: inline;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<button id="start">start</button>
+<div id="time">Click start first</div>
+<div id="output"></div>
+<script defer>
+    const startButton = document.querySelector('#start');
+    const output = document.querySelector('#output');
+    const time = document.querySelector('#time');
+
+    let html = '';
+    for (let i = 0; i < 5000; i++) {
+        html += `<div class="badge">${i}</div>`
+    }
+
+    startButton.addEventListener('click', () => {
+        output.innerHTML = '';
+        const start = Date.now();
+        output.innerHTML = html;
+        const end = Date.now();
+        const diff = end - start;
+        time.innerHTML = `${diff} ms`;
+    });
+
+</script>
+</body>
+</html>
