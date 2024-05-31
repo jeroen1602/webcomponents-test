@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angular</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #output {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      gap: 5px;
+    }
+  </style>
+</head>
+<body>
+<button id="start">start</button>
+<div id="time">Click start first</div>
+<div id="output"></div>
+<script defer>
+  const startButton = document.querySelector('#start');
+  const output = document.querySelector('#output');
+  const time = document.querySelector('#time');
+
+  let html = '';
+  for (let i = 0; i < 5000; i++) {
+    html += `<angular-badge>${i}</angular-badge>`
+  }
+
+  startButton.addEventListener('click', () => {
+    output.innerHTML = '';
+    const start = Date.now();
+    output.innerHTML = html;
+    const end = Date.now();
+    const diff = end - start;
+    time.innerHTML = `${diff} ms`;
+  });
+
+</script>
+</body>
+</html>

@@ -6,6 +6,7 @@ const port = 3000;
 const repeatCount = 10;
 
 app.use('/native', express.static('./native'));
+app.use('/angular', express.static('./angular/dist/angular/browser/'));
 
 const server = app.listen(port, async () => {
     console.log('app has started!');
@@ -14,6 +15,7 @@ const server = app.listen(port, async () => {
         headless: true,
     });
     await testPage(browser, 'native', repeatCount);
+    await testPage(browser, 'angular', repeatCount);
 
     await browser.close();
     server.close();
