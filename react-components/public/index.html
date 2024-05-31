@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>React</title>
+</head>
+<body>
+<button id="start">start</button>
+<div id="time">Click start first</div>
+<div id="output"></div>
+<script defer>
+    const startButton = document.querySelector('#start');
+    const output = document.querySelector('#output');
+    const time = document.querySelector('#time');
+
+    let html = '';
+    for (let i = 0; i < 5000; i++) {
+        html += `<react-badge>${i}</react-badge>`
+    }
+
+    startButton.addEventListener('click', () => {
+        output.innerHTML = '';
+        const start = Date.now();
+        output.innerHTML = html;
+        const end = Date.now();
+        const diff = end - start;
+        time.innerHTML = `${diff} ms`;
+    });
+
+</script>
+</body>
+</html>

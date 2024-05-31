@@ -3,3 +3,7 @@
 cd angular || exit;
 npm run build || exit;
 cd ../ || exit;
+
+cd react-components || ext;
+npm run build || exit;
+cd ../ || exit;
