@@ -35,3 +35,36 @@ Thumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+
+#angular
+# Compiled output
+/angular/dist
+/angular/tmp
+/angular/out-tsc
+/angular/bazel-out
+
+# Miscellaneous
+/angular/.angular/cache
+/angular/.sass-cache/
+/angular/connect.lock
+/angular/coverage
+/angular/libpeerconnection.log
+/angular/testem.log
+/angular/typings
+
+#react
+# testing
+/react-components/coverage
+
+# production
+/react-components/build
+
+#vue
+/vue/.dist
+/vue/dist-ssr
+/vue/coverage
+/vue/*.local
+
+/vue/cypress/videos/
+/vue/cypress/screenshots/
