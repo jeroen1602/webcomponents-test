@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import express from 'express';
+import * as process from 'node:process';
 
 const app = express();
 const port = 3000;
@@ -13,8 +14,14 @@ app.use('/vue', express.static('./vue/dist/'));
 const server = app.listen(port, async () => {
     console.log('app has started!');
 
+    const args = [];
+    if (process.getuid() === 0) {
+        args.push('--no-sandbox');
+    }
+
     const browser = await puppeteer.launch({
         headless: true,
+        args: args,
     });
     await testPage(browser, 'native', repeatCount);
     await testPage(browser, 'angular', repeatCount);
