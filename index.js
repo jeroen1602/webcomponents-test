@@ -8,6 +8,7 @@ const repeatCount = 10;
 app.use('/native', express.static('./native'));
 app.use('/angular', express.static('./angular/dist/angular/browser/'));
 app.use('/react', express.static('./react-components/build/'));
+app.use('/vue', express.static('./vue/dist/'));
 
 const server = app.listen(port, async () => {
     console.log('app has started!');
@@ -18,6 +19,7 @@ const server = app.listen(port, async () => {
     await testPage(browser, 'native', repeatCount);
     await testPage(browser, 'angular', repeatCount);
     await testPage(browser, 'react', repeatCount);
+    await testPage(browser, 'vue', repeatCount);
 
     await browser.close();
     server.close();

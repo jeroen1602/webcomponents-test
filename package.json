@@ -12,7 +12,8 @@
   "description": "",
   "workspaces": [
     "angular",
-    "react-components"
+    "react-components",
+    "vue"
   ],
   "dependencies": {
     "express": "^4.19.2",

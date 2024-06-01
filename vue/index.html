@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue</title>
+    </head>
+    <body>
+        <button id="start">start</button>
+        <div id="time">Click start first</div>
+        <div id="output"></div>
+        <script type="module" src="/src/main.js"></script>
+        <script defer>
+            const startButton = document.querySelector('#start');
+            const output = document.querySelector('#output');
+            const time = document.querySelector('#time');
+
+            let html = '';
+            for (let i = 0; i < 5000; i++) {
+                html += `<vue-badge>${i}</vue-badge>`
+            }
+
+            startButton.addEventListener('click', () => {
+                output.innerHTML = '';
+                const start = Date.now();
+                output.innerHTML = html;
+                const end = Date.now();
+                const diff = end - start;
+                time.innerHTML = `${diff} ms`;
+            });
+
+        </script>
+    </body>
+</html>
